@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" cont
+    ent="width=device-width, initial-scale=1.0">
+    <title>쿨찐테스트</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <a href="index.html">쿨찐테스트</a>
+    </header>
+    
+    <section class="test-section"> 
+        <article>
+            <h2>문제1</h2>
+            <p>설명1</p>
+            <input type="radio" name="q1" class="yes-button"><span>Yes</span>
+            <input type="radio" name="q1" class="no-button"><span>NO</span>
+            <input type="radio" name="q1" class="maybe-button"><span>Maybe</span>
+        </article>
+        <article>
+            <h2>문제2</h2>
+            <p>설명2</p>
+            <input type="radio" name="q2" class="yes-button"><span>Yes</span>
+            <input type="radio" name="q2" class="no-button"><span>NO</span>
+            <input type="radio" name="q2" class="maybe-button"><span>Maybe</span>
+        </article>
+    </section>
+
+    <footer>
+        <a onclick="result();">결과보기</a>
+    </footer>
+    <script>
+        function result() {
+            let yes_count = 0;
+            let no_count = 0;
+
+            let e=document.getElementsByClassName('yes-button'); //클래스 이름(yes_button) 넣기
+            for (let i = 0; i < e.length; i++) {
+                if(e[i].checked) {
+                    yes_count++;
+                }
+            }
+
+            e=document.getElementsByClassName('no-button'); //클래스 이름(yes_button) 넣기
+            for (let i = 0; i < e.length; i++) {
+                if(e[i].checked) {
+                    no_count++;
+                }
+            }
+
+            e=document.getElementsByClassName('maybe-button'); //클래스 이름(yes_button) 넣기
+            for (let i = 0; i < e.length; i++) {
+                if(e[i].checked) {
+                    yes_count++;
+                }
+            }
+
+            if (yes_count+no_count!=e.length){
+                alert("모든 문제에 답해주세요")
+                return
+            }
+
+
+
+            if (yes_count==2){
+                location.href="result3.html"
+            }
+            else if (yes_count==1){
+                location.href="result2.html"
+            }
+            else{
+                location.href="result1.html"
+            }
+            
+
+            console.log('yes: '+yes_count)
+            console.log('no: '+no_count)
+
+
+            
+        }
+    </script>
+</body>
+</html>
